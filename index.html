@@ -1,1 +1,288 @@
 
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Данила Румак - Личная страница</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #e3f2fd;
+            --text-color: #333;
+            --accent-blue: #1565c0;
+            --section-orange: #fff3e0;
+            --section-orange-border: #ff9800;
+            --section-red: #ffebee;
+            --section-red-border: #f44336;
+            --section-green: #e8f5e9;
+            --section-green-border: #4caf50;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f7fa;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section mimicking the image */
+        .header-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid var(--accent-blue);
+        }
+
+        .header-top-quote {
+            text-align: right;
+            font-style: italic;
+            color: #777;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .profile-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .profile-photo-placeholder {
+            width: 150px;
+            height: 150px;
+            background-color: #e0e0e0;
+            border-radius: 12px; /* Slightly rounded like the image */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .profile-photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-photo-text {
+            color: #757575;
+            text-align: center;
+            font-size: 0.8em;
+        }
+
+        .profile-info h1 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 2.2em;
+            font-weight: 700;
+        }
+
+        .profile-info .role {
+            font-size: 1.1em;
+            color: #555;
+            margin: 5px 0;
+            font-weight: 600;
+        }
+
+        .profile-info .department {
+            color: #777;
+            font-size: 0.95em;
+        }
+
+        /* Bio Section */
+        .bio-section {
+            background-color: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent-blue);
+        }
+
+        .bio-text {
+            font-size: 1.05em;
+            text-align: justify;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 20px;
+            border-radius: 12px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .skill-card h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 500;
+            background-color: rgba(255,255,255,0.6);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* Specific Card Themes */
+        .card-orange {
+            background-color: var(--section-orange);
+            border-left: 5px solid var(--section-orange-border);
+        }
+        .card-orange h3 { color: #e65100; }
+        .card-orange .tag { color: #e65100; border-color: #ffe0b2; }
+
+        .card-red {
+            background-color: var(--section-red);
+            border-left: 5px solid var(--section-red-border);
+        }
+        .card-red h3 { color: #c62828; }
+        .card-red .tag { color: #c62828; border-color: #ffcdd2; }
+
+        .card-green {
+            background-color: var(--section-green);
+            border-left: 5px solid var(--section-green-border);
+        }
+        .card-green h3 { color: #2e7d32; }
+        .card-green .tag { color: #2e7d32; border-color: #c8e6c9; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .profile-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-top-quote {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    
+    <!-- Header Section -->
+    <header class="header-card">
+        <div class="header-top-quote">
+            "Scientia potentia est" <br>
+            <span style="font-size: 0.85em; color: #999;">Знание — сила</span>
+        </div>
+        
+        <div class="profile-container">
+            <div class="profile-photo-placeholder">
+                <!-- Замените src на путь к вашему фото. Например: src="my-photo.jpg" -->
+                <img src="https://via.placeholder.com/150?text=Фото" alt="Фото профиля" id="profile-photo">
+            </div>
+            
+            <div class="profile-info">
+                <h1>Румак Данила</h1>
+                <div class="role">Machine Learning Engineer / Researcher</div>
+                <div class="department">Факультет прикладной математики и информатики (ФПМИ)</div>
+                <div class="department">Специальность: Информатика</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bio Section -->
+    <section class="bio-section">
+        <p class="bio-text">
+            Обучался на Факультете прикладной математики и информатики (ФПМИ) по специальности "Информатика" (кафедра КТС) с 2018 по 2022 год. 
+            За время обучения я не только освоил фундаментальные дисциплины, но и активно погрузился в исследовательскую деятельность. 
+            Моя дипломная работа была посвящена разработке и исследованию <strong>мультимодальных моделей</strong>, что стало логичным продолжением моего глубокого научного интереса к математике, сложным алгоритмам и современным методам машинного обучения.
+            Я стремлюсь применять передовые подходы DL для решения нетривиальных задач на стыке компьютерного зрения и обработки естественного языка.
+        </p>
+    </section>
+
+    <!-- Interests & Skills Sections -->
+    <div class="skills-grid">
+        
+        <!-- Orange: Professional Skills -->
+        <div class="skill-card card-orange">
+            <h3>Профессиональные навыки</h3>
+            <div class="skill-tags">
+                <span class="tag">ML CV</span>
+                <span class="tag">Classic ML</span>
+                <span class="tag">PyTorch</span>
+                <span class="tag">Transformers</span>
+                <span class="tag">vLM</span>
+                <span class="tag">Qwen</span>
+                <span class="tag">Flux</span>
+            </div>
+        </div>
+
+        <!-- Red: Scientific Interests -->
+        <div class="skill-card card-red">
+            <h3>Научные интересы</h3>
+            <div class="skill-tags">
+                <span class="tag">Multi-modal vLMs</span>
+                <span class="tag">Diffusion Models</span>
+                <span class="tag">LLM</span>
+                <span class="tag">Reinforcement Learning</span>
+                <span class="tag">GPU NN Acceleration</span>
+            </div>
+        </div>
+
+        <!-- Green: Work Sphere -->
+        <div class="skill-card card-green">
+            <h3>Сфера работы</h3>
+            <div class="skill-tags">
+                <span class="tag">Anti-fraud detection</span>
+                <span class="tag">Computer Vision</span>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Скрипт для простой загрузки фото пользователем (если файл лежит рядом) -->
+<script>
+    // Если пользователь положит файл с именем photo.jpg или photo.png в ту же папку,
+    // можно попробовать автоматически подставить его, но проще оставить плейсхолдер
+    // и инструкцию в комментарии HTML.
+</script>
+
+</body>
+</html>
