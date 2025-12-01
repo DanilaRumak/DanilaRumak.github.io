@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -122,15 +121,15 @@
             text-align: justify;
         }
 
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+        /* Skills Layout (Vertical now) */
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* Space between cards */
         }
 
         .skill-card {
-            padding: 20px;
+            padding: 25px;
             border-radius: 12px;
             background-color: white;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
@@ -144,16 +143,24 @@
         .skill-card h3 {
             margin-top: 0;
             margin-bottom: 15px;
-            font-size: 1.2em;
+            font-size: 1.4em;
             display: flex;
             align-items: center;
             gap: 10px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            padding-bottom: 10px;
+        }
+
+        .skill-content p {
+            margin-bottom: 15px;
+            color: #444;
         }
 
         .skill-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
+            margin-top: 15px;
         }
 
         .tag {
@@ -213,7 +220,7 @@
         <div class="profile-container">
             <div class="profile-photo-placeholder">
                 <!-- Замените src на путь к вашему фото. Например: src="my-photo.jpg" -->
-                <img src="https://via.placeholder.com/150?text=Фото" alt="Фото профиля" id="profile-photo">
+                <img src="profile.png" alt="Фото профиля" id="profile-photo">
             </div>
             
             <div class="profile-info">
@@ -235,41 +242,65 @@
         </p>
     </section>
 
-    <!-- Interests & Skills Sections -->
-    <div class="skills-grid">
+    <!-- Interests & Skills Sections (Vertical Layout) -->
+    <div class="skills-container">
         
         <!-- Orange: Professional Skills -->
         <div class="skill-card card-orange">
             <h3>Профессиональные навыки</h3>
-            <div class="skill-tags">
-                <span class="tag">ML CV</span>
-                <span class="tag">Classic ML</span>
-                <span class="tag">PyTorch</span>
-                <span class="tag">Transformers</span>
-                <span class="tag">vLM</span>
-                <span class="tag">Qwen</span>
-                <span class="tag">Flux</span>
+            <div class="skill-content">
+                <p>
+                    Обладаю глубоким пониманием как классических алгоритмов машинного обучения, так и современных архитектур глубокого обучения. 
+                    Моя ключевая экспертиза лежит в области компьютерного зрения (CV) и мультимодального обучения. 
+                    Я профессионально владею фреймворком <strong>PyTorch</strong>, имея большой опыт построения и файн-тюнинга сложных моделей. 
+                    В моем арсенале — работа с продвинутыми <strong>Transformer</strong> архитектурами и Vision-Language Models (vLMs). 
+                    Я активно экспериментирую с новейшими моделями, такими как <strong>Qwen</strong> и <strong>Flux</strong>, расширяя границы возможностей генеративного ИИ.
+                </p>
+                <div class="skill-tags">
+                    <span class="tag">ML CV</span>
+                    <span class="tag">Classic ML</span>
+                    <span class="tag">PyTorch</span>
+                    <span class="tag">Transformers</span>
+                    <span class="tag">vLM</span>
+                    <span class="tag">Qwen</span>
+                    <span class="tag">Flux</span>
+                </div>
             </div>
         </div>
 
         <!-- Red: Scientific Interests -->
         <div class="skill-card card-red">
             <h3>Научные интересы</h3>
-            <div class="skill-tags">
-                <span class="tag">Multi-modal vLMs</span>
-                <span class="tag">Diffusion Models</span>
-                <span class="tag">LLM</span>
-                <span class="tag">Reinforcement Learning</span>
-                <span class="tag">GPU NN Acceleration</span>
+            <div class="skill-content">
+                <p>
+                    Мой исследовательский интерес сосредоточен на пересечении визуального восприятия и языка. 
+                    Меня особенно увлекают <strong>Multi-modal vLMs</strong> и их способность "рассуждать" о визуальном мире, приближая ИИ к человеческому уровню понимания. 
+                    Я углубленно изучаю <strong>Diffusion Models</strong> для высококачественной генерации контента и исследую возможности больших языковых моделей (<strong>LLM</strong>). 
+                    Кроме того, я занимаюсь вопросами <strong>Reinforcement Learning</strong> и оптимизацией нейросетей для ускорения на GPU, стремясь сделать мощные ИИ-системы более эффективными и доступными.
+                </p>
+                <div class="skill-tags">
+                    <span class="tag">Multi-modal vLMs</span>
+                    <span class="tag">Diffusion Models</span>
+                    <span class="tag">LLM</span>
+                    <span class="tag">Reinforcement Learning</span>
+                    <span class="tag">GPU NN Acceleration</span>
+                </div>
             </div>
         </div>
 
         <!-- Green: Work Sphere -->
         <div class="skill-card card-green">
             <h3>Сфера работы</h3>
-            <div class="skill-tags">
-                <span class="tag">Anti-fraud detection</span>
-                <span class="tag">Computer Vision</span>
+            <div class="skill-content">
+                <p>
+                    В профессиональной деятельности я применяю экспертизу компьютерного зрения для критически важной задачи — <strong>Anti-fraud detection</strong>. 
+                    Я разрабатываю надежные системы, способные выявлять мошеннические действия и аномалии в визуальных данных. 
+                    Это включает в себя создание сложных пайплайнов для обнаружения дипфейков, подделки документов и других манипуляций, обеспечивая безопасность и доверие в цифровых сервисах.
+                </p>
+                <div class="skill-tags">
+                    <span class="tag">Anti-fraud detection</span>
+                    <span class="tag">Computer Vision</span>
+                </div>
             </div>
         </div>
 
@@ -277,11 +308,8 @@
 
 </div>
 
-<!-- Скрипт для простой загрузки фото пользователем (если файл лежит рядом) -->
 <script>
-    // Если пользователь положит файл с именем photo.jpg или photo.png в ту же папку,
-    // можно попробовать автоматически подставить его, но проще оставить плейсхолдер
-    // и инструкцию в комментарии HTML.
+    // Скрипт для фото оставил, чтобы не ломать логику, если она понадобится позже.
 </script>
 
 </body>
